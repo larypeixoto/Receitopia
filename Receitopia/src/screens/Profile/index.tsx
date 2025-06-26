@@ -1,8 +1,8 @@
 import { View, Text, Image, ScrollView } from "react-native";
 
 
-export const HomePage = () => {
+export const Profile = () => {
  return(
-    <Text>Olaaaaa</Text>
+    <Text>PROFILE</Text>
  )
 }
