@@ -8,9 +8,11 @@ export const styles = StyleSheet.create({
     borderRadius: 20,
     marginHorizontal: 5,
     alignItems: "center",
+    width: 180
   },
+
   buttonText: {
-    color: "#FFF",
+    color: "#d8e1ce",
     fontSize: 16,
   },
 });

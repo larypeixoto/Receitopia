@@ -6,7 +6,7 @@ import { Register } from "./src/screens/Register";
 
 export default function App() {
   return (
-    <SingIn/>
-    //<Register/>
+    //<SingIn/>
+    <Register/>
   );
 }

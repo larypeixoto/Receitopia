@@ -9,9 +9,9 @@ export const styles = StyleSheet.create({
   },
 
   containersInputs: {
-    marginTop:20,
-    marginBottom:20,
-    gap:12,
+    marginTop: 20,
+    marginBottom: 20,
+    gap: 12,
   },
 
   containerSenha: {
@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
   icon: {
     position: "absolute",
     right: 10,
-    marginTop:22,
+    marginTop: 22,
     transform: [{ translateY: -12 }],
     padding: 4,
   },
