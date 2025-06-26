@@ -1,7 +1,7 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
-import FontAwesome from '@expo/vector-icons/FontAwesome';
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 import { Text } from "react-native";
 
@@ -22,7 +22,7 @@ export const BottomTabs = () => {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-        tabBarInactiveTintColor: "#fff",
+        tabBarInactiveTintColor: "#ffffff",
         tabBarActiveTintColor: "#d8e1ce",
         tabBarStyle: {
           backgroundColor: "#829460",

@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignContent: "center",
     alignItems: "center",
+    
   },
 
     containerButton: {
