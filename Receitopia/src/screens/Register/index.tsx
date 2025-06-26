@@ -4,8 +4,9 @@ import { styles } from "./styles";
 import { View, TouchableOpacity } from "react-native";
 
 import { Background } from "../../components/Background";
-import { Title } from "../../components/Title";
+import { Title } from "../../components/Texts/Title";
 import { Input } from "../../components/Input";
+import { Button } from "../../components/Button";
 import { HideEye } from "../../components/HideEye";
 
 export const Register = () => {
@@ -47,6 +48,19 @@ export const Register = () => {
             onChangeText={setSenha}
           />
         </View>
+
+        <Button
+          title={"Criar cadastro!"}
+          style={{
+            width: 200,
+            backgroundColor: "#7D8F69",
+            paddingVertical: 12,
+            paddingHorizontal: 30,
+            borderRadius: 20,
+            marginHorizontal: 5,
+            alignItems: "center",
+          }}
+        />
       </View>
     </Background>
   );

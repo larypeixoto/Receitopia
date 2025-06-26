@@ -1,8 +1,8 @@
 import { View, Text, Image, ScrollView } from "react-native";
 
 
-export const HomePage = () => {
+export const Search = () => {
  return(
-    <Text>Olaaaaa</Text>
+    <Text>Search</Text>
  )
 }

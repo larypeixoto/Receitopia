@@ -4,8 +4,9 @@ import { styles } from "./styles";
 import { View, TouchableOpacity } from "react-native";
 
 import { Background } from "../../components/Background";
-import { Title } from "../../components/Title";
+import { Title } from "../../components/Texts/Title";
 import { Input } from "../../components/Input";
+import { Button } from "../../components/Button";
 import { HideEye } from "../../components/HideEye";
 
 export const SingIn = () => {
@@ -23,21 +24,48 @@ export const SingIn = () => {
             placeholderTextColor="#d8e1ce"
           />
           <View style={styles.containerSenha}>
-                      <Input
-                        placeholder="Digite sua senha!"
-                        placeholderTextColor="#d8e1ce"
-                        secureTextEntry={!senhaVisivel}
-                        value={senha}
-                        onChangeText={setSenha}
-                      />
-          
-                      <HideEye
-                      visible={senhaVisivel}
-            onPress={() => setSenhaVisivel(!senhaVisivel)}
-            size={24}
-            color="#d8e1ce"
+            <Input
+              placeholder="Digite sua senha!"
+              placeholderTextColor="#d8e1ce"
+              secureTextEntry={!senhaVisivel}
+              value={senha}
+              onChangeText={setSenha}
             />
-                    </View>
+
+            <HideEye
+              visible={senhaVisivel}
+              onPress={() => setSenhaVisivel(!senhaVisivel)}
+              size={24}
+              color="#d8e1ce"
+            />
+          </View>
+        </View>
+
+        <View style={styles.containerButton}>
+          <Button
+            title={"Entrar!"}
+            style={{
+              width: 180,
+              backgroundColor: "#7D8F69",
+              paddingVertical: 12,
+              paddingHorizontal: 30,
+              borderRadius: 20,
+              marginHorizontal: 5,
+              alignItems: "center",
+            }}
+          />
+          <Button
+            title={"Cadastre-se!"}
+            style={{
+              width: 180,
+              backgroundColor: "#7D8F69",
+              paddingVertical: 12,
+              paddingHorizontal: 30,
+              borderRadius: 20,
+              marginHorizontal: 5,
+              alignItems: "center",
+            }}
+          />
         </View>
       </View>
     </Background>
