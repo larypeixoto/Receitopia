@@ -4,7 +4,7 @@ import { styles } from "./styles";
 import { View, TouchableOpacity } from "react-native";
 
 import { Background } from "../../components/Background";
-import { Title } from "../../components/Title";
+import { Title } from "../../components/Texts/Title";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { HideEye } from "../../components/HideEye";
