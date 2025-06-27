@@ -9,11 +9,13 @@ import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { HideEye } from "../../components/HideEye";
 import { apiMock } from "../../services/api";
+import { useNavigation } from "@react-navigation/native";
 
 export const SingIn = () => {
   const [senhaVisivel, setSenhaVisivel] = useState(false);
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+  const {navigate} = useNavigation(); 
 
   const handleLogin = () =>{
     apiMock
@@ -22,14 +24,24 @@ export const SingIn = () => {
         if(data.length > 0){
           const usuarioEncontrado = data[0];
           if(usuarioEncontrado.email === email && usuarioEncontrado.senha === senha){
-            Alert.alert("Usuario encontrado");
+            navigate('HomePage');
+            setEmail("");
+            setSenha("");
           }
-        }
+        } 
       })
       .catch((erro)=>{
         Alert.alert("Usuario não encontrado");
       })
   }
+
+
+ const handleCadastrar = () =>{
+    navigate('Register');
+
+  }
+
+
   return (
     <Background>
       <View style={styles.container}>
@@ -85,7 +97,7 @@ export const SingIn = () => {
               marginHorizontal: 5,
               alignItems: "center",
             }}
-            
+            onPress={handleCadastrar}
           />
         </View>
       </View>
