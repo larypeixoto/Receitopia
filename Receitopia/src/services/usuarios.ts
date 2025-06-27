@@ -14,6 +14,6 @@ async function criarUsuario(novoUsuario: Usuario) {
 }
 
 async function getUsuarios() {
-    const {data} = await apiMock.get('')
+    const {data} = await apiMock.get("/usuarios")
     return data;
 }
