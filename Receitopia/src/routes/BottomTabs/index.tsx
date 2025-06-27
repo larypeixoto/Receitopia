@@ -1,5 +1,6 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Ionicons } from "@expo/vector-icons";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 
@@ -8,6 +9,12 @@ import { Text } from "react-native";
 import { HomePage } from "../../screens/Home";
 import { Profile } from "../../screens/Profile";
 import { Search } from "../../screens/Search";
+import { MadeIt } from "../../screens/MadeIt";
+
+export type RootStackParamList = {
+  MainTabs: undefined;
+  MadeIt: undefined;
+}
 
 export type TabParamList = {
   HomePage: undefined;
@@ -15,6 +22,7 @@ export type TabParamList = {
   Profile: undefined;
 };
 
+const Stack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator<TabParamList>();
 
 export const BottomTabs = () => {
@@ -28,7 +36,8 @@ export const BottomTabs = () => {
           backgroundColor: "#829460",
         },
       }}
-    >
+    > 
+  
       <Tab.Screen
         name="Search"
         component={Search}
@@ -61,3 +70,20 @@ export const BottomTabs = () => {
     </Tab.Navigator>
   );
 };
+
+export const ButtonNav = () => {
+  return(
+    <Stack.Navigator>
+        <Stack.Screen 
+          name="MainTabs" 
+          component={BottomTabs}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen 
+          name="MadeIt" 
+          component={MadeIt}
+          options={{ title: "Já fiz!" }}
+        />
+      </Stack.Navigator>
+  )
+}

@@ -1,6 +1,8 @@
 import { View, Text, Image, ScrollView, FlatList } from "react-native";
 import { styles } from "./styles";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 import { Background } from "../../components/Background";
 import { Subtitle } from "../../components/Texts/Subtitle";
@@ -8,6 +10,9 @@ import { Button } from "../../components/Button";
 import { TextCard } from "../../components/Card/TextCard";
 
 export const Profile = () => {
+
+  const navigation = useNavigation();
+
   const registro = {
     email: "olamundo@email.com",
     nome: "fulanildo de tal",
