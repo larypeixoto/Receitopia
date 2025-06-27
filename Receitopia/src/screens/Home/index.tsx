@@ -4,7 +4,7 @@ import {
   Image,
   ScrollView,
   ActivityIndicator,
-FlatList,
+  FlatList,
 } from "react-native";
 
 import { useEffect, useState } from "react";
@@ -12,9 +12,9 @@ import { getRecipes, recipeProps } from "../../services/recipesApi";
 import { Background } from "../../components/Background";
 import { RecipeCard } from "../../components/Card/RecipeCard";
 import { Title } from "../../components/Texts/Title";
-import { Separator } from "../../components/Separator"
+import { Separator } from "../../components/Separator";
 
-import { styles } from "./styles"
+import { styles } from "./styles";
 
 export const HomePage = () => {
   const [recipeList, setRecipeList] = useState<recipeProps[]>([]);
@@ -34,10 +34,9 @@ export const HomePage = () => {
   return (
     <Background>
       <ScrollView>
-
-         <View style={styles.header}>
-            <Title title={"Receitopia"}/>
-         </View>
+        <View style={styles.header}>
+          <Title title={"Receitopia"} />
+        </View>
 
         {loading ? (
           <ActivityIndicator size={"large"} />
@@ -45,12 +44,15 @@ export const HomePage = () => {
           <FlatList
             data={recipeList}
             renderItem={({ item }) => {
-              return <RecipeCard receita={item.receita}
-              id={item.id}
-              tipo={item.tipo}
-              link_imagem={item.link_imagem} />;
+              return (
+                <RecipeCard
+                  receita={item.receita}
+                  id={item.id}
+                  tipo={item.tipo}
+                  link_imagem={item.link_imagem}
+                />
+              );
             }}
-            ItemSeparatorComponent={Separator}
           />
         )}
       </ScrollView>
