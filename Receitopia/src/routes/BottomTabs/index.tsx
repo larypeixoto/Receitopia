@@ -9,6 +9,7 @@ import { HomePage } from "../../screens/Home";
 import { Profile } from "../../screens/Profile";
 import { Search } from "../../screens/Search";
 
+
 export type TabParamList = {
   HomePage: undefined;
   Search: undefined;
@@ -28,7 +29,8 @@ export const BottomTabs = () => {
           backgroundColor: "#829460",
         },
       }}
-    >
+    > 
+  
       <Tab.Screen
         name="Search"
         component={Search}
