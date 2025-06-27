@@ -19,6 +19,7 @@ declare global {
       Profile: undefined
       MadeIt: undefined
       ToDo: undefined
+      HomeTabs: undefined
     }
    }
 }
@@ -30,13 +31,13 @@ export const Routes = () => {
     <NavigationContainer>
       
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name='Profile' component={Profile}/>
           <Stack.Screen name='SingIn' component={SingIn} />
           <Stack.Screen name='Register' component={Register}/>
           <Stack.Screen name='HomePage' component={HomePage}/>
           <Stack.Screen name='HomeTabs' component={BottomTabs}/>
           <Stack.Screen name='MadeIt' component={MadeIt}/>
           <Stack.Screen name='ToDo' component={ToDo}/>
+          <Stack.Screen name='Profile' component={Profile}/>
       </Stack.Navigator>
      
     </NavigationContainer>

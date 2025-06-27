@@ -24,7 +24,7 @@ export const SingIn = () => {
         if(data.length > 0){
           const usuarioEncontrado = data[0];
           if(usuarioEncontrado.email === email && usuarioEncontrado.senha === senha){
-            navigate('HomePage');
+            navigate('HomeTabs');
             setEmail("");
             setSenha("");
           }

@@ -59,7 +59,6 @@ export const HomePage = () => {
         </ScrollView>
         
       </Background>
-      <BottomTabs/>
     </>
   );
 };
