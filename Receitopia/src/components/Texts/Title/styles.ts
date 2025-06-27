@@ -3,6 +3,6 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
     titleFont: {
         fontSize: 40,
-        fontFamily: 'Tangerine_700Bold',
+        fontFamily: "Tangerine-Bold",
     }
 });
