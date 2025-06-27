@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { styles } from "./styles";
 import { View, TouchableOpacity, Alert } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import { Background } from "../../components/Background";
 import { Title } from "../../components/Texts/Title";
@@ -16,6 +17,7 @@ export const Register = () => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [confsenha, setConfsenha] = useState("");
+  const {navigate} = useNavigation(); 
 
   const handleRegister = ()=> {
 
@@ -43,7 +45,7 @@ export const Register = () => {
       .post("/usuarios" ,usuario)
       .then((response) => {
         if(response.status === 200 || response.status === 201){
-          Alert.alert("Usuario cadastrado com sucesso");
+          navigate('SingIn');
           setNome(''); 
           setEmail('');
           setSenha('');

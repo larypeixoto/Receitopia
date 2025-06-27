@@ -71,19 +71,19 @@ export const BottomTabs = () => {
   );
 };
 
-export const ButtonNav = () => {
-  return(
-    <Stack.Navigator>
-        <Stack.Screen 
-          name="MainTabs" 
-          component={BottomTabs}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen 
-          name="MadeIt" 
-          component={MadeIt}
-          options={{ title: "Já fiz!" }}
-        />
-      </Stack.Navigator>
-  )
-}
+// export const ButtonNav = () => {
+//   return(
+//     <Stack.Navigator>
+//         <Stack.Screen 
+//           name="MainTabs" 
+//           component={BottomTabs}
+//           options={{ headerShown: false }}
+//         />
+//         <Stack.Screen 
+//           name="MadeIt" 
+//           component={MadeIt}
+//           options={{ title: "Já fiz!" }}
+//         />
+//       </Stack.Navigator>
+//   )
+// }
