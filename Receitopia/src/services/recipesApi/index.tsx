@@ -7,6 +7,8 @@ const apiRecipes = axios.create({
 export interface recipeProps {
     id: string,
     receita: string,
+    tipo: string,
+    link_imagem: string,
 }
 
 
