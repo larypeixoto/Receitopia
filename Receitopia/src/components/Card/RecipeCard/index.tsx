@@ -8,7 +8,7 @@ interface RecipeCpmProps extends recipeProps {
     setSelectedItemId: React.Dispatch<React.SetStateAction<string>>
 }
 
-export const RecipeCard = ({ receita, id, tipo, link_imagem, setIsItemDetailsModalOpen, setSelectedItemId  }: RecipeCpmProps) => {
+export const RecipeCard = ({ receita, id, tipo, setIsItemDetailsModalOpen, setSelectedItemId  }: RecipeCpmProps) => {
 
     function defineSelectedId () {
         setSelectedItemId(id);

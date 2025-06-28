@@ -1,10 +1,10 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  container: {
-    justifyContent: "center",
-    alignItems: "center",
-  },
+  // container: {
+  //   justifyContent: "center",
+  //   alignItems: "center",
+  // }, tirei essa parte pq tava dando bug na rolagem -bia 
 
   avatarArea: {
     alignItems: "center",

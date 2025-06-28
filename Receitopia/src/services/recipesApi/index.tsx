@@ -8,7 +8,7 @@ export interface recipeProps {
     id: string,
     receita: string,
     tipo: string,
-    link_imagem: string,
+    link_imagem?: string,
     ingredientes?: string,
     modo_preparo?: string
 }

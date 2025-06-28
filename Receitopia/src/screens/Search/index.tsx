@@ -1,28 +1,29 @@
-import React from "react";
-import axios, { AxiosResponse } from "axios";
-import { useState, useEffect } from "react";
-import {
-  Alert,
-  View,
-  Text,
-  TouchableOpacity,
-  ImageBackground,
-  ActivityIndicator,
-  FlatList,
-} from "react-native";
-import { styles } from "./styles";
 import { Ionicons } from "@expo/vector-icons";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import {
+  ActivityIndicator,
+  Alert,
+  FlatList,
+  ImageBackground,
+  Text,
+  View
+} from "react-native";
 import { Background } from "../../components/Background";
-import { Title } from "../../components/Texts/Title";
-import { SearchInput } from "../../components/Input/SearchInput";
-import { SearchIcon } from "../../components/SearchIcon";
 import { RecipeCard } from "../../components/Card/RecipeCard";
+import { SearchInput } from "../../components/Input/SearchInput";
+import { RecipeDetailsModal } from "../../components/Modals/recipeDetailsModal";
+import { SearchIcon } from "../../components/SearchIcon";
+import { Title } from "../../components/Texts/Title";
 import { recipeProps } from "../../services/recipesApi";
+import { styles } from "./styles";
 
 export const Search = () => {
   const [search, setSearch] = useState("");
   const [searchRecipeList, setSearchRecipeList] = useState<recipeProps[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false); //coloquei false pq tava carregando antes da pesquisa
+  const [isRecipeDetailsModalOpen, setIsRecipeDetailsModalOpen] = useState<boolean>(false);
+  const [selectedRecipeId, setSelectedRecipeId] = useState<string>('');
 
   const searchRecipes = async () => {
     if (!search.trim()) return;
@@ -56,7 +57,8 @@ export const Search = () => {
 
   return (
     <Background>
-      <View style={styles.container}>
+      {/* <View style={styles.container}> tieri pq tava com bug na rolagem */}
+       
         <View style={styles.avatarArea}>
           <Title title={"Receitopia"} />
           <ImageBackground
@@ -83,6 +85,7 @@ export const Search = () => {
         {loading ? (
           <ActivityIndicator size={"large"} />
         ) : (
+          
           <FlatList
             data={searchRecipeList}
             keyExtractor={(item) => item.id.toString()}
@@ -92,13 +95,20 @@ export const Search = () => {
                   receita={item.receita}
                   id={item.id}
                   tipo={item.tipo}
-                />
+                  setIsItemDetailsModalOpen={setIsRecipeDetailsModalOpen}
+                  setSelectedItemId={setSelectedRecipeId} />
               );
             }}
+            
           />
         )}
-        <View></View>
-      </View>
+        {isRecipeDetailsModalOpen && <RecipeDetailsModal
+          selectedRecipeId={selectedRecipeId}
+          isRecipeDetailsModalOpen={isRecipeDetailsModalOpen}
+          setIsRecipeDetailsModalOpen={setIsRecipeDetailsModalOpen}
+        />}
+        
+      {/* </View> */}
     </Background>
   );
 };
