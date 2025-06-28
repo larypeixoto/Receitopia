@@ -10,12 +10,14 @@ import { Button } from "../../components/Button";
 import { HideEye } from "../../components/HideEye";
 import { apiMock } from "../../services/api";
 import { useNavigation } from "@react-navigation/native";
+import { Register } from "../Register";
+import { HomePage } from "../Home";
 
 export const SingIn = () => {
   const [senhaVisivel, setSenhaVisivel] = useState(false);
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const {navigate} = useNavigation(); 
+  const { navigate } = useNavigation<any>();
 
   const handleLogin = () =>{
     apiMock
