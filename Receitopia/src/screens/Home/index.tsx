@@ -16,11 +16,14 @@ import { Separator } from "../../components/Separator"
 import { NavigationContainer } from "@react-navigation/native";
 import { BottomTabs } from "../../routes/BottomTabs";
 import { styles } from "./styles"
+import { RecipeDetailsModal } from "../../components/Modals/recipeDetailsModal";
 
 
 export const HomePage = () => {
   const [recipeList, setRecipeList] = useState<recipeProps[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+   const [isRecipeDetailsModalOpen, setIsRecipeDetailsModalOpen] = useState<boolean>(false);
+  const [selectedRecipeId, setSelectedRecipeId] = useState<string>('');
 
   useEffect(() => {
     getRecipes()
@@ -51,12 +54,22 @@ export const HomePage = () => {
                 return <RecipeCard receita={item.receita}
                 id={item.id}
                 tipo={item.tipo}
-                link_imagem={item.link_imagem} />;
+                link_imagem={item.link_imagem}
+                setIsItemDetailsModalOpen={setIsRecipeDetailsModalOpen}     
+                setSelectedItemId={setSelectedRecipeId}
+                />;
+                
               }}
               ItemSeparatorComponent={Separator}
             />
           )}
+          {isRecipeDetailsModalOpen && <RecipeDetailsModal
+            selectedRecipeId={selectedRecipeId}
+            isRecipeDetailsModalOpen={isRecipeDetailsModalOpen}
+            setIsRecipeDetailsModalOpen={setIsRecipeDetailsModalOpen}
+        />}
         </ScrollView>
+
         
       </Background>
     </>
