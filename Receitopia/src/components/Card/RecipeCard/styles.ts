@@ -2,38 +2,30 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   buttonRecipe: {
-    backgroundColor: "transparent",
-    borderBottomColor: "#829460",
-    padding: 15,
-    flexDirection: "row",
-    gap: 10,
-  },
-
-  icon: {
-    width: 100,
-    height: 100,
-    borderRadius: 20,
-  },
-
-  left: {
+    backgroundColor: "#82946076",
+    width: 396,
+    height: 130,
+    alignSelf: "center",
     alignItems: "center",
-  },
-
-  right: {
-    width: 270,
-    padding: 10,
     justifyContent: "center",
+    borderRadius: 20,
+    padding: 15,
+    margin: 5,
   },
 
   recipeName: {
-    fontSize: 20,
+    fontSize: 22,
     textAlign: "center",
     marginBottom: 8,
+    textShadowColor: "#829460",
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 10,
   },
 
   recipeType: {
+    fontSize: 16,
     alignSelf: "center",
     textTransform: "uppercase",
-    letterSpacing: 1,
+    letterSpacing: 0.8,
   },
 });

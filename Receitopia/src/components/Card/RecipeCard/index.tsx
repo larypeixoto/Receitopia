@@ -18,13 +18,8 @@ export const RecipeCard = ({ receita, id, tipo, link_imagem, setIsItemDetailsMod
   return (
 
     <TouchableOpacity onPress={defineSelectedId}style={styles.buttonRecipe}>
-      <View style={styles.left}>
-        <Image source={{ uri: link_imagem }} style={styles.icon} />
-      </View>
-      <View style={styles.right}>
-        <Text style={styles.recipeName}>{receita}</Text>
-        <Text style={styles.recipeType}>{tipo}</Text>
-      </View>
+      <Text style={styles.recipeName}>{receita}</Text>
+      <Text style={styles.recipeType}>{tipo}</Text>
     </TouchableOpacity>
   );
 };

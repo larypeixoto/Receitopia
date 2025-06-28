@@ -24,5 +24,6 @@ export function getRecipesDetails(id: string): Promise<AxiosResponse<recipeProps
     return apiRecipes.get(url);
 }
 
-
-
+export function getRecipeType(tipo: string): Promise<AxiosResponse<recipeProps[], any>> {
+    return apiRecipes.get(`/tipo/${tipo}`);
+}
