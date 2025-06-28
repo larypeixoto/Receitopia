@@ -1,17 +1,46 @@
 import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { styles } from "./styles";
-import { View, TouchableOpacity } from "react-native";
+import { View, TouchableOpacity, Alert } from "react-native";
 
 import { Background } from "../../components/Background";
 import { Title } from "../../components/Texts/Title";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { HideEye } from "../../components/HideEye";
+import { apiMock } from "../../services/api";
+import { useNavigation } from "@react-navigation/native";
 
 export const SingIn = () => {
   const [senhaVisivel, setSenhaVisivel] = useState(false);
+  const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+  const {navigate} = useNavigation(); 
+
+  const handleLogin = () =>{
+    apiMock
+      .get(`/usuarios?email=${email}`)
+      .then(({data}) =>{
+        if(data.length > 0){
+          const usuarioEncontrado = data[0];
+          if(usuarioEncontrado.email === email && usuarioEncontrado.senha === senha){
+            navigate('HomeTabs');
+            setEmail("");
+            setSenha("");
+          }
+        } 
+      })
+      .catch((erro)=>{
+        Alert.alert("Usuario não encontrado");
+      })
+  }
+
+
+ const handleCadastrar = () =>{
+    navigate('Register');
+
+  }
+
 
   return (
     <Background>
@@ -22,6 +51,8 @@ export const SingIn = () => {
           <Input
             placeholder="Insira seu e-mail"
             placeholderTextColor="#d8e1ce"
+            value={email}
+            onChangeText={setEmail}
           />
           <View style={styles.containerSenha}>
             <Input
@@ -53,6 +84,7 @@ export const SingIn = () => {
               marginHorizontal: 5,
               alignItems: "center",
             }}
+            onPress={handleLogin}
           />
           <Button
             title={"Cadastre-se!"}
@@ -65,6 +97,7 @@ export const SingIn = () => {
               marginHorizontal: 5,
               alignItems: "center",
             }}
+            onPress={handleCadastrar}
           />
         </View>
       </View>

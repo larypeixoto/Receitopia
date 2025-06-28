@@ -11,8 +11,14 @@ import { TextCard } from "../../components/Card/TextCard";
 
 export const Profile = () => {
 
-  const navigation = useNavigation();
+  const {navigate} = useNavigation(); 
 
+  const handleToDo = () => {
+    navigate('ToDo')
+  }
+  const handleMadeIt = () => {
+    navigate('MadeIt')
+  }  
   const registro = {
     email: "olamundo@email.com",
     nome: "fulanildo de tal",
@@ -40,6 +46,7 @@ export const Profile = () => {
                 marginHorizontal: 5,
                 alignItems: "center",
               }}
+              onPress={handleMadeIt}
             />
             <Button
               title={"Quero fazer!"}
@@ -52,6 +59,7 @@ export const Profile = () => {
                 marginHorizontal: 5,
                 alignItems: "center",
               }}
+              onPress={handleToDo}
             />
           </View>
 

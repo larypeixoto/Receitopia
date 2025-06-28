@@ -2,40 +2,40 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#e9f0e5",
-    alignItems: "center",
     justifyContent: "center",
-    paddingTop: 40,
+    alignItems: "center",
   },
 
   avatarArea: {
     alignItems: "center",
-    marginBottom: 20,
+    justifyContent: "center",
+    marginBottom: 0,
     padding: 20,
-    backgroundColor: "#d0e0b0",
   },
 
   avatarCircle: {
     width: 90,
     height: 90,
-    borderRadius: 45,
+    borderRadius: 200,
+    overflow: "hidden",
     backgroundColor: "#8d9c68",
     marginBottom: 20,
   },
-  receitaTitle: {
-    fontSize: 25,
-    fontFamily: "serif",
-    fontStyle: "italic",
-    color: "#4e5c35",
-    marginBottom: 10,
-    textAlign: "center",
-  },
+
   pesquisa: {
     fontSize: 18,
     fontWeight: "bold",
     color: "#4e5c35",
+    margin: 10,
   },
+
+  containerSearch: {
+    position: "relative",
+    width: "100%",
+    marginBottom: 20,
+    alignItems: "center",
+  },
+
   menuPesquisa: {
     backgroundColor: "#4e5c35",
     padding: 10,
