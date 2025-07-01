@@ -40,10 +40,9 @@ export const RecipeDetailsModal = ({ isRecipeDetailsModalOpen, setIsRecipeDetail
     catch{
       console.error("erro")
     }
-    // finally{ 
     //   setLoading(false)
     //   };
-    };
+  };
 
   useEffect(() => {
       const consultarUsuario = async () => {

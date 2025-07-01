@@ -12,7 +12,7 @@ async function addJaFiz(novoConteudo: Conteudo) {
 }
 
 async function listarJaFiz(idCli: string) {
-    const {data} = await apiMock2.get("/queroFazer?idCliente=" + idCli)
+    const {data} = await apiMock2.get("/jaFiz?idCliente=" + idCli)
     return data;
 }
 
