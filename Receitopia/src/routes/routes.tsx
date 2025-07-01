@@ -30,7 +30,7 @@ export const Routes = () => {
     <NavigationContainer>
       
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name='RecipeDetail' component={RecipeDetail} />
+          {/* <Stack.Screen name='RecipeDetail' component={RecipeDetail} /> */}
 
 
           <Stack.Screen name='SingIn' component={SingIn} />
@@ -46,5 +46,3 @@ export const Routes = () => {
   );
 };
 
-
-//
