@@ -5,8 +5,11 @@ import {
   ScrollView,
   ActivityIndicator,
   FlatList,
+  Alert
 } from "react-native";
 
+import { apiMock } from "../../services/mock/api";
+import async from "../../services/async/storage"
 import { useEffect, useState } from "react";
 import { getRecipes, recipeProps } from "../../services/recipesApi";
 import { Background } from "../../components/Background";
@@ -17,13 +20,22 @@ import { NavigationContainer } from "@react-navigation/native";
 import { BottomTabs } from "../../routes/BottomTabs";
 import { styles } from "./styles";
 import { RecipeDetailsModal } from "../../components/Modals/recipeDetailsModal";
+import addQueroFazer from "../../services/mock/queroFazer"
+import { getRecipesDetails } from "../../services/recipesApi"
 
+interface RecipeDetailsModal {
+  isRecipeDetailsModalOpen: boolean,
+  setIsRecipeDetailsModalOpen: React.Dispatch<React.SetStateAction<boolean>>,
+  selectedRecipeId: string,
+}
 
 export const HomePage = () => {
   const [recipeList, setRecipeList] = useState<recipeProps[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [isRecipeDetailsModalOpen, setIsRecipeDetailsModalOpen] = useState<boolean>(false);
   const [selectedRecipeId, setSelectedRecipeId] = useState<string>('');
+  
+
 
   useEffect(() => {
     getRecipes()
@@ -35,6 +47,9 @@ export const HomePage = () => {
       })
       .finally(() => setLoading(false));
   }, []);
+
+
+
 
   return (
     <>
@@ -68,13 +83,6 @@ export const HomePage = () => {
             setIsRecipeDetailsModalOpen={setIsRecipeDetailsModalOpen}
         />}
 
-                link_imagem={item.link_imagem} />;
-              }}
-              ItemSeparatorComponent={Separator}
-            />
-          )}
-        
-        
 
       </Background>
     </>

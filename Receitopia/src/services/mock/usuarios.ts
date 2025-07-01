@@ -4,8 +4,6 @@ type Usuario = {
   name: string;
   email: string;
   senha: string;
-  querofazer: any[]; 
-  jafiz: any[];
 };
 
 async function criarUsuario(novoUsuario: Usuario) {
@@ -23,10 +21,10 @@ async function delUsuarios(idDel: string){
   try {
     const response = await apiMock.delete(`/usuarios/${idDel}`);
     console.log("Usuário deletado");
-    return response; // caso queira retornar algo
+    return response; 
   } catch (error) {
     console.error("Erro ao deletar", error);
-    // Você pode também lançar o erro novamente se quiser tratá-lo fora da função
+
     throw error;
   }
 }

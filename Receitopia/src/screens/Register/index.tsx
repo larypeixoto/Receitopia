@@ -9,7 +9,7 @@ import { Title } from "../../components/Texts/Title";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { HideEye } from "../../components/HideEye";
-import { apiMock } from "../../services/api";
+import { apiMock } from "../../services/mock/api";
 
 export const Register = () => {
   const [senhaVisivel, setSenhaVisivel] = useState(false);

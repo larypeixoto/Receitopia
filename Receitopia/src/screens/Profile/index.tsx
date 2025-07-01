@@ -8,10 +8,10 @@ import { Background } from "../../components/Background";
 import { Subtitle } from "../../components/Texts/Subtitle";
 import { Button } from "../../components/Button";
 import { TextCard } from "../../components/Card/TextCard";
-import { apiMock } from "../../services/api";
+import { apiMock } from "../../services/mock/api";
 import async from "../../services/async/storage"
 import { useState, useEffect  } from "react";
-import del from "../../services/usuarios"
+import del from "../../services/mock/usuarios"
 
 
 export const Profile = () => {
