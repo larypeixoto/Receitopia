@@ -36,7 +36,7 @@ export const HomePage = () => {
   return (
     <>
       <Background>
-        <ScrollView>
+        
 
           <View style={styles.header}>
               <Title title={"Receitopia"}/>
@@ -56,7 +56,7 @@ export const HomePage = () => {
               ItemSeparatorComponent={Separator}
             />
           )}
-        </ScrollView>
+        
         
       </Background>
     </>
