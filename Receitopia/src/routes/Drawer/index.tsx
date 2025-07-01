@@ -14,8 +14,12 @@ const Drawer = createDrawerNavigator<DrawerParamList>();
 export default function DrawerNavigator() {
   return (
     <Drawer.Navigator screenOptions={{
+      headerShown: true,
       headerStyle: { backgroundColor: '#D8E1CE' },
       headerTintColor: '#829460',
+      drawerStyle : { backgroundColor: '#829460' }, 
+      drawerActiveTintColor: '#D8E1CE',
+      drawerInactiveTintColor: '#ffffff',
     }}>
       <Drawer.Screen
         name="Home"
