@@ -52,7 +52,6 @@ export const HomePage = () => {
                 return <RecipeCard receita={item.receita}
                 id={item.id}
                 tipo={item.tipo}
-                link_imagem={item.link_imagem}
                 setIsItemDetailsModalOpen={setIsRecipeDetailsModalOpen}     
                 setSelectedItemId={setSelectedRecipeId}
                 />;

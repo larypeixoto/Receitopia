@@ -8,6 +8,7 @@ import { Profile } from "../screens/Profile";
 import { SingIn } from "../screens/SingIn";
 import { MadeIt } from "../screens/MadeIt";
 import { ToDo } from "../screens/ToDo";
+import { RecipeDetail } from "../screens/Receita";
 const Stack = createNativeStackNavigator();
 
 declare global {
@@ -29,6 +30,9 @@ export const Routes = () => {
     <NavigationContainer>
       
       <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name='RecipeDetail' component={RecipeDetail} />
+
+
           <Stack.Screen name='SingIn' component={SingIn} />
           <Stack.Screen name='Register' component={Register}/>
           <Stack.Screen name='HomePage' component={HomePage}/>
