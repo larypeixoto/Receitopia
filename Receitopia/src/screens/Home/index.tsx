@@ -48,9 +48,6 @@ export const HomePage = () => {
       .finally(() => setLoading(false));
   }, []);
 
-
-
-
   return (
     <>
       <Background>
