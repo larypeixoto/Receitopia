@@ -24,8 +24,6 @@ declare global {
    }
 }
 
-
-
 export const Routes = () => {
   return (
     <NavigationContainer>
@@ -43,6 +41,3 @@ export const Routes = () => {
     </NavigationContainer>
   );
 };
-
-
-//

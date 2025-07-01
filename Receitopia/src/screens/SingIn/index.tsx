@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { styles } from "./styles";
 import { View, TouchableOpacity, Alert } from "react-native";
@@ -8,16 +8,21 @@ import { Title } from "../../components/Texts/Title";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { HideEye } from "../../components/HideEye";
-import { apiMock } from "../../services/api";
+import { apiMock } from "../../services/mock/api";
 import { useNavigation } from "@react-navigation/native";
+import  async   from "../../services/async/storage"
+
 
 export const SingIn = () => {
   const [senhaVisivel, setSenhaVisivel] = useState(false);
   const [email, setEmail] = useState("");
+  const [id, setId] = useState("");
   const [senha, setSenha] = useState("");
   const {navigate} = useNavigation(); 
+  
 
-  const handleLogin = () =>{
+  const handleLogin = async  () =>{
+    
     apiMock
       .get(`/usuarios?email=${email}`)
       .then(({data}) =>{
@@ -27,14 +32,18 @@ export const SingIn = () => {
             navigate('HomeTabs');
             setEmail("");
             setSenha("");
+            async.saveData(usuarioEncontrado.id); 
+      
           }
         } 
       })
       .catch((erro)=>{
         Alert.alert("Usuario não encontrado");
       })
+      // await async.limparTudo();
+      
+      
   }
-
 
  const handleCadastrar = () =>{
     navigate('Register');

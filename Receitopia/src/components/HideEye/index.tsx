@@ -11,7 +11,7 @@ interface EyeIconProps {
   color?: string;
 }
 
-export const HideEye: React.FC<EyeIconProps> = ({ visible, onPress, size, color }) => {
+export const HideEye = ({ visible, onPress, size, color }: EyeIconProps) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.eyeIcon}>
       <Ionicons
