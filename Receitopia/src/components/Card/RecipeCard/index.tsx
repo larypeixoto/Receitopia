@@ -3,16 +3,23 @@ import { TouchableOpacity, Text, Image, View } from "react-native";
 import { recipeProps } from "../../../services/recipesApi";
 import { styles } from "./styles";
 
-export const RecipeCard = ({ receita, id, tipo, link_imagem }: recipeProps) => {
+interface RecipeCpmProps extends recipeProps {
+    setIsItemDetailsModalOpen: React.Dispatch<React.SetStateAction<boolean>>,
+    setSelectedItemId: React.Dispatch<React.SetStateAction<string>>
+}
+
+export const RecipeCard = ({ receita, id, tipo, setIsItemDetailsModalOpen, setSelectedItemId  }: RecipeCpmProps) => {
+
+    function defineSelectedId () {
+        setSelectedItemId(id);
+        setIsItemDetailsModalOpen(true);
+    }
+
   return (
-    <TouchableOpacity style={styles.buttonRecipe}>
-      <View style={styles.left}>
-        <Image source={{ uri: link_imagem }} style={styles.icon} />
-      </View>
-      <View style={styles.right}>
-        <Text style={styles.recipeName}>{receita}</Text>
-        <Text style={styles.recipeType}>{tipo}</Text>
-      </View>
+
+    <TouchableOpacity onPress={defineSelectedId}style={styles.buttonRecipe}>
+      <Text style={styles.recipeName}>{receita}</Text>
+      <Text style={styles.recipeType}>{tipo}</Text>
     </TouchableOpacity>
   );
 };
