@@ -6,19 +6,19 @@ import { styles } from "./styles";
 
 import { Background } from "../../components/Background";
 import { getRecipesDetails } from "../../services/recipesApi";
-import { ExportedRootParamList} from "../../routes/StackNavigation"
+import { ExportedRootParamList } from "../../routes/StackNavigation"
 import { RouteProp, useRoute } from "@react-navigation/native";
 
 type RecipeDetailRouteProp = RouteProp<ExportedRootParamList, 'RecipeDetail'>;
 
 export const RecipeDetail = () => {
 
-    
+
 
     const route = useRoute<RecipeDetailRouteProp>();
     const { id } = route.params;
 
-   
+
 
     // const id = "1"; //temporario 
 
@@ -34,6 +34,7 @@ export const RecipeDetail = () => {
     const [quantidade, setQuantidade] = useState("");
     const [categoria, setCategoria] = useState("");
     const [imagem, setImagem] = useState("")
+    const [nomeRec, setNomeRec] = useState("");
 
     useEffect(() => {
         async function fetchRecipe() {
@@ -49,6 +50,7 @@ export const RecipeDetail = () => {
 
                 setIngredientes(ingredientesFormatados);
 
+                if (data.receita) setNomeRec(data.receita);
                 if (data.modo_preparo) setReceita(data.modo_preparo);
                 if (data.ingredientes) setQuantidade(data.ingredientes);
                 if (data.tipo) setCategoria(data.tipo);
@@ -75,11 +77,11 @@ export const RecipeDetail = () => {
                 <View style={styles.header}>
                     <View style={styles.recipeImageContainer}>
                         {/* <View style={styles.recipeImage} /> */}
-                        <Image style={styles.recipeImage} source={{uri: imagem}}/>
+                        <Image style={styles.recipeImage} source={{ uri: imagem }} />
                     </View>
 
                     <View style={styles.recipeInfo}>
-                        <Text style={styles.recipeTitulo}>Receita</Text>
+                        <Text style={styles.recipeTitulo}>{nomeRec}</Text>
                         <Text style={styles.recipeSubtitle}>{categoria}</Text>
                     </View>
                 </View>
