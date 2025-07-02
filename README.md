@@ -42,9 +42,7 @@ Este trabalho foi desenvolvido em grupo por seis alunos como parte da disciplina
    git clone https://github.com/seu-usuario/receitopia.git
 
 2. Instale as dependências:
-    npm install
-    # ou
-    npm i
+    npm install ou npm i
 
 3. Inicie app com Expo:
     npm start
