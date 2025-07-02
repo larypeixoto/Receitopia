@@ -3,8 +3,6 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import DrawerNavigator from "../Drawer"; 
 import { Register } from "../../screens/Register";
 import { SingIn } from "../../screens/SingIn";
-import { MadeIt } from "../../screens/MadeIt";
-import { ToDo } from "../../screens/ToDo";
 
 declare global {
    namespace ReactNavigation{
@@ -13,8 +11,6 @@ declare global {
       Register: undefined
       SingIn: undefined
       Profile: undefined
-      MadeIt: undefined
-      ToDo: undefined
       HomeTabs: undefined
       AppDrawer: undefined
       Auth: undefined
@@ -32,8 +28,6 @@ export function StackNavigator() {
         <Stack.Screen name="SingIn" component={SingIn} />
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="AppDrawer" component={DrawerNavigator} />
-        <Stack.Screen name="MadeIt" component={MadeIt} />
-        <Stack.Screen name="ToDo" component={ToDo} />
       </Stack.Navigator>
     </NavigationContainer>
   );

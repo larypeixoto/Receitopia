@@ -2,6 +2,7 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { Title } from "../../components/Texts/Title";
 
 import { HomePage } from "../../screens/Home";
 import { Profile } from "../../screens/Profile";
@@ -31,6 +32,7 @@ export const BottomTabs = () => {
         name="HomePage"
         component={HomePage}
         options={{
+          headerTitle: () => <Title title="Receitopia" />,
           tabBarIcon: ({ color }) => (
             <Ionicons name="home" size={26} color={color} />
           ),

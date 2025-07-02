@@ -9,23 +9,26 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 20,
-    padding: 15,
+    padding: 10,
     margin: 5,
+    marginTop: 10,
   },
 
   recipeName: {
-    fontSize: 22,
+    fontSize: 20,
     textAlign: "center",
     marginBottom: 8,
     textShadowColor: "#829460",
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 10,
+    fontFamily: "Roboto_400Regular",
   },
 
   recipeType: {
     fontSize: 16,
     alignSelf: "center",
     textTransform: "uppercase",
+    fontFamily: "Roboto_400Regular",
     letterSpacing: 0.8,
   },
 });

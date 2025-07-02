@@ -1,6 +1,6 @@
 import { Text } from "react-native";
 import { styles } from "./styles";
-import { useFonts, Tangerine_700Bold } from "@expo-google-fonts/tangerine";
+import { useFonts, StyleScript_400Regular } from "@expo-google-fonts/style-script";
 
 interface TitleProps {
   title?: string;
@@ -8,7 +8,7 @@ interface TitleProps {
 
 export const Title = ({ title }: TitleProps) => {
   const [fontsLoaded] = useFonts({
-    Tangerine_700Bold,
+    StyleScript_400Regular,
   });
 
   if (!fontsLoaded) return null;

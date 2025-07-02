@@ -57,7 +57,6 @@ export const HomePage = () => {
       <Background>
 
         <View style={styles.header}>
-          <Title title={"Receitopia"} />
         </View>
 
 

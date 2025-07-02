@@ -2,6 +2,7 @@ import React from "react";
 import { TouchableOpacity, Text, Image, View } from "react-native";
 import { recipeProps } from "../../../services/recipesApi";
 import { styles } from "./styles";
+import { useFonts, Roboto_400Regular } from "@expo-google-fonts/roboto";
 
 interface RecipeCpmProps extends recipeProps {
     setIsItemDetailsModalOpen: React.Dispatch<React.SetStateAction<boolean>>,
@@ -9,6 +10,11 @@ interface RecipeCpmProps extends recipeProps {
 }
 
 export const RecipeCard = ({ receita, id, tipo, setIsItemDetailsModalOpen, setSelectedItemId  }: RecipeCpmProps) => {
+ const [fontsLoaded] = useFonts({
+    Roboto_400Regular,
+  });
+
+  if (!fontsLoaded) return null;
 
     function defineSelectedId () {
         setSelectedItemId(id);

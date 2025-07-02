@@ -60,7 +60,7 @@ export const Search = () => {
       {/* <View style={styles.container}> tieri pq tava com bug na rolagem */}
        
         <View style={styles.avatarArea}>
-          <Title title={"Receitopia"} />
+          <Title title={"Livro de Receitas"} />
           <ImageBackground
             source={{
               uri: "https://i.pinimg.com/736x/9b/01/b9/9b01b9b9967797f3a92c285b99745422.jpg",
