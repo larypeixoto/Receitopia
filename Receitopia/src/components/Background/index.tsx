@@ -9,7 +9,10 @@ interface BackgroundProps {
 
 export const Background = ({ children }: BackgroundProps) => {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView 
+      edges={['left', 'right', 'bottom']} 
+      style={styles.container}
+    >
       <View style={styles.background}>
         {children}
       </View>

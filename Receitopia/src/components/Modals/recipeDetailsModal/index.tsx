@@ -1,8 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Modal, View, Text, ActivityIndicator, ScrollView, TouchableOpacity, Image, Pressable } from 'react-native';
+import { Modal, View, Text, ActivityIndicator, ScrollView, TouchableOpacity, Image, Pressable, Alert } from 'react-native';
 import { styles } from "./styles";
 import { getRecipesDetails, recipeProps } from "../../../services/recipesApi";
 import AntDesign from '@expo/vector-icons/AntDesign';
+import addQueroFazer from "../../../services/mock/queroFazer"
+import addJaFiz from "../../../services/mock/jaFiz"
+import { apiMock } from "../../../services/mock/api";
+import async from "../../../services/async/storage"
 
 interface RecipeDetailsModal {
   isRecipeDetailsModalOpen: boolean,
@@ -11,6 +15,8 @@ interface RecipeDetailsModal {
 }
 
 export const RecipeDetailsModal = ({ isRecipeDetailsModalOpen, setIsRecipeDetailsModalOpen, selectedRecipeId }: RecipeDetailsModal) => {
+  const [idIdCliente, setIdCliente] = useState("");
+  const [idIdReceita, setIdReceita] = useState("");
   const [recipeDetails, setRecipeDetails] = useState<recipeProps>({
     id: "",
     receita: "",
@@ -22,10 +28,44 @@ export const RecipeDetailsModal = ({ isRecipeDetailsModalOpen, setIsRecipeDetail
   });
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
+  const conteudo = {
+    idCliente: idIdCliente,
+    idReceita: idIdReceita
+  };
+  const carregarId = async () => {
+    try{
+      const idCarregada = await async.getUserId(); 
+      return idCarregada;
+    }
+    catch{
+      console.error("erro")
+    }
+    //   setLoading(false)
+    //   };
+  };
+
+  useEffect(() => {
+      const consultarUsuario = async () => {
+        try {
+          const id = await carregarId();
+          const { data } = await apiMock.get(`/usuarios?id=${id}`);
+          if (data.length > 0) {
+            const usuarioEncontrado = data[0];
+            setIdCliente(usuarioEncontrado.id) 
+          }
+        }catch (error) {
+          Alert.alert("Erro ao buscar usuário");
+        }        
+    };
+  
+      consultarUsuario();
+    }, []);  
+
   useEffect(() => {
     getRecipesDetails(selectedRecipeId)
       .then(({ data }) => {
         setRecipeDetails(data)
+        setIdReceita(data.id)
       })
       .catch((error) => {
         console.log(error)
@@ -35,6 +75,11 @@ export const RecipeDetailsModal = ({ isRecipeDetailsModalOpen, setIsRecipeDetail
       })
   }, []);
 
+  const handleAddQueroFazer = () => {
+    addQueroFazer.addQueroFazer(conteudo)
+
+  }
+  
 
   return (
     <Modal
@@ -76,11 +121,11 @@ export const RecipeDetailsModal = ({ isRecipeDetailsModalOpen, setIsRecipeDetail
               </ScrollView>
 
               <View style={styles.buttonView}>
-                <TouchableOpacity style={styles.button}>
-                  <Text>Quero Fazer</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
-                  <Text>Já fiz</Text>
+                <TouchableOpacity 
+                    style={styles.button}
+                    onPress={handleAddQueroFazer}
+                >
+                  <Text>Fazer agora</Text>
                 </TouchableOpacity>
               
               </View>
