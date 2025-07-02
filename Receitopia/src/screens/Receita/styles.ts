@@ -1,35 +1,29 @@
-import { StyleSheet, Dimensions } from "react-native";
-
-const { width } = Dimensions.get('window');
+import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingHorizontal: 20,
-        paddingTop: 40,
+        paddingTop: 10,
     },
 
     header: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: 20,
-        gap: 15,
-    },
-
-    recipeImageContainer: {
-        width: 80,
-        height: 80,
-        borderRadius: 40,
-        backgroundColor: '#7D8F69',
-        justifyContent: 'center',
-        alignItems: 'center',
+        marginBottom: 10,
+        marginTop: 50,
+        marginStart: 20,
+        marginEnd: 20,
+        gap: 10
+        
     },
 
     recipeImage: {
-        width: 70,
-        height: 70,
-        borderRadius: 35,
-        backgroundColor: '#6B7B5A',
+        width: 100,
+        height: 100,
+        borderRadius: 100,
+        borderWidth: 1,
+        borderColor: '#6B7B5A',
     },
 
     recipeInfo: {
@@ -40,38 +34,14 @@ export const styles = StyleSheet.create({
         fontSize: 22,
         fontWeight: 'bold',
         color: '#4A5A3A',
-        marginBottom: 4,
+        marginBottom: 4
     },
 
     recipeSubtitle: {
-        fontSize: 14,
-        color: '#7D8F69',
-    },
-
-    actionButton: {
-        backgroundColor: '#D8E1CE',
-        borderRadius: 20,
-        paddingVertical: 12,
-        paddingHorizontal: 30,
-        alignSelf: 'center',
-        marginBottom: 25,
-        borderWidth: 1,
-        borderColor: '#7D8F69',
-    },
-
-    actionButtonActive: {
-        backgroundColor: '#7D8F69',
-    },
-
-    actionButtonText: {
         color: '#7D8F69',
         fontSize: 16,
-        fontWeight: '600',
-        textAlign: 'center',
-    },
-
-    actionButtonTextActive: {
-        color: '#fff',
+        textTransform: "uppercase",
+        letterSpacing: 0.8,
     },
 
     section: {
@@ -82,7 +52,7 @@ export const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
         color: '#4A5A3A',
-        marginBottom: 15,
+        marginBottom: 10,
     },
 
     ingredienteItem: {
@@ -116,6 +86,7 @@ export const styles = StyleSheet.create({
         flex: 1,
         fontSize: 14,
         color: '#fff',
+        textTransform: 'capitalize'
     },
 
     ingredienteTextChecked: {
@@ -127,28 +98,14 @@ export const styles = StyleSheet.create({
         backgroundColor: '#7D8F69',
         borderRadius: 15,
         padding: 15,
-        minHeight: 150,
+        minHeight: 160,
+        maxHeight: 160,
         textAlignVertical: 'top',
     },
 
     text: {
         fontSize: 14,
         color: '#fff',
-
     },
 
-    bottomNav: {
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        alignItems: 'center',
-        backgroundColor: '#7D8F69',
-        borderRadius: 25,
-        paddingVertical: 15,
-        marginTop: 20,
-        marginBottom: 30,
-    },
-
-    navItem: {
-        padding: 8,
-    },
 });
