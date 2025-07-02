@@ -6,9 +6,10 @@ export const styles = StyleSheet.create({
     borderRadius: 100,
     width: 380,
     color: "#d8e1ce",
-    fontSize: 18,
+    fontSize: 16,
     paddingBottom: 14,
     paddingTop: 14,
     paddingHorizontal: 14,
+    alignSelf: "center",
   },
 });

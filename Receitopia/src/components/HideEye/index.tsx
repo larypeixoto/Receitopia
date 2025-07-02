@@ -1,7 +1,6 @@
-import React from 'react';
-import { TouchableOpacity, StyleSheet } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-
+import { Ionicons } from "@expo/vector-icons";
+import React from "react";
+import { TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 
 interface EyeIconProps {
@@ -11,14 +10,10 @@ interface EyeIconProps {
   color?: string;
 }
 
-export const HideEye: React.FC<EyeIconProps> = ({ visible, onPress, size, color }) => {
+export const HideEye = ({ visible, onPress, size, color }: EyeIconProps) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.eyeIcon}>
-      <Ionicons
-        name={visible ? "eye" : "eye-off"}
-        size={size}
-        color={color}
-      />
+      <Ionicons name={visible ? "eye" : "eye-off"} size={size} color={color} />
     </TouchableOpacity>
   );
 };
