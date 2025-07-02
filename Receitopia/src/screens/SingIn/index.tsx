@@ -10,7 +10,7 @@ import { Button } from "../../components/Button";
 import { HideEye } from "../../components/HideEye";
 import { apiMock } from "../../services/mock/api";
 import { useNavigation } from "@react-navigation/native";
-
+import { useNotificacao } from "../../contexts/Notificação";
 import  async   from "../../services/async/storage"
 
 import { Register } from "../Register";
@@ -23,6 +23,8 @@ export const SingIn = () => {
   const [id, setId] = useState("");
   const [senha, setSenha] = useState("");
   const {navigate} = useNavigation(); 
+  const { notificar } = useNotificacao();
+
   const handleLogin = async  () =>{
     
     apiMock
@@ -35,12 +37,12 @@ export const SingIn = () => {
             setEmail("");
             setSenha("");
             async.saveData(usuarioEncontrado.id); 
-      
+            notificar({ tipo: "sucesso", mensagem: "Bem vindo!" });
           }
         } 
       })
       .catch((erro)=>{
-        Alert.alert("Usuario não encontrado");
+        notificar({ tipo: "erro", mensagem: "usuario não encontrado." })
       })
       // await async.limparTudo();
       

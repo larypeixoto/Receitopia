@@ -6,11 +6,16 @@ const apiRecipes = axios.create({
 
 export interface recipeProps {
     id: string,
-    receita: string,
-    tipo: string,
+    receita?: string,
+    tipo?: string,
     link_imagem?: string,
     ingredientes?: string,
     modo_preparo?: string
+    IngredientesBase?: IngredientesBase[]; 
+}
+
+export interface IngredientesBase {
+  nomesIngrediente: string[];
 }
 
 
@@ -27,3 +32,9 @@ export function getRecipesDetails(id: string): Promise<AxiosResponse<recipeProps
 export function getRecipeType(tipo: string): Promise<AxiosResponse<recipeProps[], any>> {
     return apiRecipes.get(`/tipo/${tipo}`);
 }
+
+
+
+
+
+

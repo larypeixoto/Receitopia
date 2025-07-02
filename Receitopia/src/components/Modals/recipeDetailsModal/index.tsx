@@ -7,6 +7,10 @@ import addQueroFazer from "../../../services/mock/queroFazer"
 import addJaFiz from "../../../services/mock/jaFiz"
 import { apiMock } from "../../../services/mock/api";
 import async from "../../../services/async/storage"
+import  { RecipeDetail }  from "../../../screens/Receita"
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+//import { ExportedRootParamList} from '../../../routes/routes'
 
 interface RecipeDetailsModal {
   isRecipeDetailsModalOpen: boolean,
@@ -14,58 +18,39 @@ interface RecipeDetailsModal {
   selectedRecipeId: string,
 }
 
+
+
 export const RecipeDetailsModal = ({ isRecipeDetailsModalOpen, setIsRecipeDetailsModalOpen, selectedRecipeId }: RecipeDetailsModal) => {
-  const [idIdCliente, setIdCliente] = useState("");
+  let [idIdCliente, setIdCliente] = useState("");
   const [idIdReceita, setIdReceita] = useState("");
+  const { navigate } = useNavigation();
   const [recipeDetails, setRecipeDetails] = useState<recipeProps>({
     id: "",
     receita: "",
-    tipo: '',
+    tipo: "",
     link_imagem: "",
     ingredientes: "",
     modo_preparo: ""
 
   });
   const [isLoading, setIsLoading] = useState<boolean>(true);
+ // const navigation = useNavigation<NativeStackNavigationProp<ExportedRootParamList>>();
 
-  const conteudo = {
-    idCliente: idIdCliente,
-    idReceita: idIdReceita
-  };
-  const carregarId = async () => {
-    try{
-      const idCarregada = await async.getUserId(); 
-      return idCarregada;
-    }
-    catch{
-      console.error("erro")
-    }
-    //   setLoading(false)
-    //   };
+  const handleReceita = () => {
+    setIsRecipeDetailsModalOpen(false); // fecha o modal
+    navigate('RecipeDetail', { id: selectedRecipeId });
   };
 
-  useEffect(() => {
-      const consultarUsuario = async () => {
-        try {
-          const id = await carregarId();
-          const { data } = await apiMock.get(`/usuarios?id=${id}`);
-          if (data.length > 0) {
-            const usuarioEncontrado = data[0];
-            setIdCliente(usuarioEncontrado.id) 
-          }
-        }catch (error) {
-          Alert.alert("Erro ao buscar usuário");
-        }        
-    };
-  
-      consultarUsuario();
-    }, []);  
+
+
 
   useEffect(() => {
     getRecipesDetails(selectedRecipeId)
       .then(({ data }) => {
+        console.log(selectedRecipeId)
         setRecipeDetails(data)
         setIdReceita(data.id)
+        async.saveIdReceita(idIdReceita)
       })
       .catch((error) => {
         console.log(error)
@@ -74,11 +59,6 @@ export const RecipeDetailsModal = ({ isRecipeDetailsModalOpen, setIsRecipeDetail
         setIsLoading(false)
       })
   }, []);
-
-  const handleAddQueroFazer = () => {
-    addQueroFazer.addQueroFazer(conteudo)
-
-  }
   
 
   return (
@@ -123,7 +103,7 @@ export const RecipeDetailsModal = ({ isRecipeDetailsModalOpen, setIsRecipeDetail
               <View style={styles.buttonView}>
                 <TouchableOpacity 
                     style={styles.button}
-                    onPress={handleAddQueroFazer}
+                    onPress={handleReceita}
                 >
                   <Text>Fazer agora</Text>
                 </TouchableOpacity>
