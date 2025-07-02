@@ -10,7 +10,11 @@ import { Button } from "../../components/Button";
 import { HideEye } from "../../components/HideEye";
 import { apiMock } from "../../services/mock/api";
 import { useNavigation } from "@react-navigation/native";
+
 import  async   from "../../services/async/storage"
+
+import { Register } from "../Register";
+import { HomePage } from "../Home";
 
 
 export const SingIn = () => {
@@ -19,8 +23,6 @@ export const SingIn = () => {
   const [id, setId] = useState("");
   const [senha, setSenha] = useState("");
   const {navigate} = useNavigation(); 
-  
-
   const handleLogin = async  () =>{
     
     apiMock
@@ -29,7 +31,7 @@ export const SingIn = () => {
         if(data.length > 0){
           const usuarioEncontrado = data[0];
           if(usuarioEncontrado.email === email && usuarioEncontrado.senha === senha){
-            navigate('HomeTabs');
+            navigate('AppDrawer');
             setEmail("");
             setSenha("");
             async.saveData(usuarioEncontrado.id); 

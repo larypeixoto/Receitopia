@@ -15,13 +15,17 @@ import { getRecipes, recipeProps } from "../../services/recipesApi";
 import { Background } from "../../components/Background";
 import { RecipeCard } from "../../components/Card/RecipeCard";
 import { Title } from "../../components/Texts/Title";
-import { Separator } from "../../components/Separator";
+
 import { NavigationContainer } from "@react-navigation/native";
 import { BottomTabs } from "../../routes/BottomTabs";
-import { styles } from "./styles";
+
 import { RecipeDetailsModal } from "../../components/Modals/recipeDetailsModal";
 import addQueroFazer from "../../services/mock/queroFazer"
 import { getRecipesDetails } from "../../services/recipesApi"
+
+import { Separator } from "../../components/Separator"
+import { styles } from "./styles"
+
 
 interface RecipeDetailsModal {
   isRecipeDetailsModalOpen: boolean,
@@ -48,9 +52,6 @@ export const HomePage = () => {
       .finally(() => setLoading(false));
   }, []);
 
-
-
-
   return (
     <>
       <Background>
@@ -70,6 +71,7 @@ export const HomePage = () => {
                 id={item.id}
                 tipo={item.tipo}
 
+
                 link_imagem={item.link_imagem}
                 setIsItemDetailsModalOpen={setIsRecipeDetailsModalOpen}     
                 setSelectedItemId={setSelectedRecipeId}
@@ -85,6 +87,7 @@ export const HomePage = () => {
 
 
       </Background>
+
     </>
   );
 };
