@@ -1,26 +1,32 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { BottomTabs } from "../BottomTabs";
 import React from "react";
-import { HomePage } from "../../screens/Home";
 
 export type DrawerParamList = {
-   Home: {screen: "Home"}
-   Search: {screen: "Search"}
-   Profile: {screen: "Profile"};
+  Home: { screen: "Home" };
+  Search: { screen: "Search" };
+  Profile: { screen: "Profile" };
 };
 
 const Drawer = createDrawerNavigator<DrawerParamList>();
 
 export default function DrawerNavigator() {
   return (
-    <Drawer.Navigator screenOptions={{
-      headerShown: true,
-      headerStyle: { backgroundColor: '#D8E1CE' },
-      headerTintColor: '#829460',
-      drawerStyle : { backgroundColor: '#829460' }, 
-      drawerActiveTintColor: '#D8E1CE',
-      drawerInactiveTintColor: '#ffffff',
-    }}>
+    <Drawer.Navigator
+      screenOptions={{
+        headerStyle: {
+        backgroundColor: '#D8E1CE',
+        elevation: 0,
+        shadowOpacity: 0,
+     },
+        
+        headerTintColor: '#829460',
+        drawerStyle: { backgroundColor: '#829460' },
+        drawerActiveTintColor: '#D8E1CE',
+        drawerInactiveTintColor: '#ffffff',
+        drawerPosition: 'right',
+      }}
+    >
       <Drawer.Screen
         name="Home"
         component={BottomTabs}
@@ -37,9 +43,6 @@ export default function DrawerNavigator() {
         initialParams={{ screen: "Profile" }}
         options={{drawerLabel: "Profile", headerTitle: () => null}}
         />
-          
-           
     </Drawer.Navigator>
-    
   );
 }

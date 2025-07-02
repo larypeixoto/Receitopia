@@ -7,5 +7,7 @@ export const styles = StyleSheet.create({
   },
   background: {
     flex: 1,
+    paddingTop: 0, 
+    marginTop: 0,  
   },
 });

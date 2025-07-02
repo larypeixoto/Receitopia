@@ -5,7 +5,9 @@ import React from "react";
 
 export const Routes = () => {
   return (
-      <StackNavigator />
+      <NavigationContainer>
+        <DrawerNavigator/>
+        </NavigationContainer>
   );
 };
 
