@@ -63,14 +63,6 @@ export const Profile = () => {
     navigate('SingIn');
   };
 
-  const handleToDo = () => {
-    navigate('ToDo')
-  }
-
-  const handleMadeIt = () => {
-    navigate('MadeIt')
-  }
-
   const handleDellUser = async () => {
     del.delUsuarios(id);
     await async.limparTudo();
@@ -92,35 +84,6 @@ export const Profile = () => {
           <FontAwesome name="user-circle-o" size={160} color="#829460" />
           <Subtitle text={`Olá, ${nome.split(" ")[0]}`} />
           <Subtitle text={"O que você quer cozinhar hoje?"} />
-
-          <View style={styles.containerButton}>
-            <Button
-              title={"Já fiz!"}
-              style={{
-                width: 180,
-                backgroundColor: "#7D8F69",
-                paddingVertical: 12,
-                paddingHorizontal: 30,
-                borderRadius: 20,
-                marginHorizontal: 5,
-                alignItems: "center",
-              }}
-              onPress={handleMadeIt}
-            />
-            <Button
-              title={"Quero fazer!"}
-              style={{
-                width: 180,
-                backgroundColor: "#7D8F69",
-                paddingVertical: 12,
-                paddingHorizontal: 30,
-                borderRadius: 20,
-                marginHorizontal: 5,
-                alignItems: "center",
-              }}
-              onPress={handleToDo}
-            />
-          </View>
 
           <FlatList
             data={[registro]}

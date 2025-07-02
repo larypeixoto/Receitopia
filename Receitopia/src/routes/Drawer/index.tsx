@@ -15,9 +15,10 @@ export default function DrawerNavigator() {
     <Drawer.Navigator
       screenOptions={{
         headerStyle: {
-        backgroundColor: '#D8E1CE',
+        backgroundColor: 'black',
         elevation: 0,
         shadowOpacity: 0,
+        height: 100,
      },
         
         headerTintColor: '#829460',

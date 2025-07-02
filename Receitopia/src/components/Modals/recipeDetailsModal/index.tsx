@@ -79,11 +79,7 @@ export const RecipeDetailsModal = ({ isRecipeDetailsModalOpen, setIsRecipeDetail
     addQueroFazer.addQueroFazer(conteudo)
 
   }
-  const handleAddjaFiz = () => {
-    addJaFiz.addJaFiz(conteudo)
-
-  }
-
+  
 
   return (
     <Modal
@@ -129,13 +125,7 @@ export const RecipeDetailsModal = ({ isRecipeDetailsModalOpen, setIsRecipeDetail
                     style={styles.button}
                     onPress={handleAddQueroFazer}
                 >
-                  <Text>Quero Fazer</Text>
-                </TouchableOpacity>
-                <TouchableOpacity 
-                  style={styles.button}
-                  onPress={handleAddjaFiz}
-                >
-                  <Text>Já fiz</Text>
+                  <Text>Fazer agora</Text>
                 </TouchableOpacity>
               
               </View>

@@ -6,16 +6,24 @@ import { SingIn } from "../../screens/SingIn";
 import { MadeIt } from "../../screens/MadeIt";
 import { ToDo } from "../../screens/ToDo";
 
-export type RootStackParamList = {
-  Auth: undefined;
-  Register: undefined;
-  SingIn: undefined;
-  AppDrawer: undefined; 
-  MadeIt: undefined;
-  ToDo: undefined;
-};
+declare global {
+   namespace ReactNavigation{
+    interface RootParamList{
+      HomePage: undefined
+      Register: undefined
+      SingIn: undefined
+      Profile: undefined
+      MadeIt: undefined
+      ToDo: undefined
+      HomeTabs: undefined
+      AppDrawer: undefined
+      Auth: undefined
+    }
+   }
+}
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+
+const Stack = createNativeStackNavigator();
 
 export function StackNavigator() {
   return (

@@ -16,10 +16,9 @@ import { Background } from "../../components/Background";
 import { RecipeCard } from "../../components/Card/RecipeCard";
 import { Title } from "../../components/Texts/Title";
 
-import { Separator } from "../../components/Separator";
 import { NavigationContainer } from "@react-navigation/native";
 import { BottomTabs } from "../../routes/BottomTabs";
-import { styles } from "./styles";
+
 import { RecipeDetailsModal } from "../../components/Modals/recipeDetailsModal";
 import addQueroFazer from "../../services/mock/queroFazer"
 import { getRecipesDetails } from "../../services/recipesApi"
