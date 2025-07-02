@@ -3,12 +3,24 @@ import { View, Text, TouchableOpacity, ScrollView, TextInput, FlatList, Image } 
 import { Ionicons } from "@expo/vector-icons";
 import { styles } from "./styles";
 
+
 import { Background } from "../../components/Background";
 import { getRecipesDetails } from "../../services/recipesApi";
+import { ExportedRootParamList} from "../../routes/StackNavigation"
+import { RouteProp, useRoute } from "@react-navigation/native";
+
+type RecipeDetailRouteProp = RouteProp<ExportedRootParamList, 'RecipeDetail'>;
 
 export const RecipeDetail = () => {
 
-    const id = "1"; //temporario 
+    
+
+    const route = useRoute<RecipeDetailRouteProp>();
+    const { id } = route.params;
+
+   
+
+    // const id = "1"; //temporario 
 
     const [jaFiz, setJaFiz] = useState(false);
 
@@ -47,7 +59,7 @@ export const RecipeDetail = () => {
         }
 
         fetchRecipe();
-    }, []);
+    }, [id]);
 
     const toggleIngrediente = (id: number) => {
         setIngredientes(prev =>
