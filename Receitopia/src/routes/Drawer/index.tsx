@@ -1,8 +1,8 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import { BottomTabs } from "../BottomTabs";
 import React from "react";
 import { TouchableOpacity, View } from "react-native";
 import { Title } from "../../components/Texts/Title";
+import { BottomTabs } from "../BottomTabs";
 
 export type DrawerParamList = {
   HomePage: { screen: "HomePage" };
@@ -52,8 +52,7 @@ export default function DrawerNavigator() {
                   position: "absolute",
                   justifyContent: "space-between",
                 }}
-              >
-              </TouchableOpacity>
+              ></TouchableOpacity>
             </View>
           ),
         })}
@@ -81,8 +80,7 @@ export default function DrawerNavigator() {
                   position: "absolute",
                   justifyContent: "space-between",
                 }}
-              >
-              </TouchableOpacity>
+              ></TouchableOpacity>
             </View>
           ),
         })}
@@ -110,8 +108,7 @@ export default function DrawerNavigator() {
                   position: "absolute",
                   justifyContent: "space-between",
                 }}
-              >
-              </TouchableOpacity>
+              ></TouchableOpacity>
             </View>
           ),
         })}

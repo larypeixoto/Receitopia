@@ -6,6 +6,6 @@ export const styles = StyleSheet.create({
     margin: 10,
     fontFamily: "StyleScript_400Regular",
     alignSelf: "center",
-    color: "#829460"
+    color: "#829460",
   },
 });

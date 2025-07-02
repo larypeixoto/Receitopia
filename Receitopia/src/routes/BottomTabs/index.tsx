@@ -1,9 +1,8 @@
-import React from "react";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import React from "react";
 import { Title } from "../../components/Texts/Title";
-
 import { HomePage } from "../../screens/Home";
 import { Profile } from "../../screens/Profile";
 import { Search } from "../../screens/Search";
@@ -27,8 +26,8 @@ export const BottomTabs = () => {
           backgroundColor: "#829460",
         },
       }}
-    > 
-        <Tab.Screen
+    >
+      <Tab.Screen
         name="HomePage"
         component={HomePage}
         options={{
@@ -39,7 +38,6 @@ export const BottomTabs = () => {
         }}
       />
 
-  
       <Tab.Screen
         name="Search"
         component={Search}

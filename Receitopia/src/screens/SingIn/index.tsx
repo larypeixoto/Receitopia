@@ -1,59 +1,49 @@
-import React, { useState, useEffect } from "react";
-import { Ionicons } from "@expo/vector-icons";
-import { styles } from "./styles";
-import { View, TouchableOpacity, Alert } from "react-native";
-
+import { useNavigation } from "@react-navigation/native";
+import React, { useState } from "react";
+import { View } from "react-native";
 import { Background } from "../../components/Background";
-import { Title } from "../../components/Texts/Title";
-import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { HideEye } from "../../components/HideEye";
-import { apiMock } from "../../services/mock/api";
-import { useNavigation } from "@react-navigation/native";
+import { Input } from "../../components/Input";
+import { Title } from "../../components/Texts/Title";
 import { useNotificacao } from "../../contexts/Notificação";
-import  async   from "../../services/async/storage"
-
-import { Register } from "../Register";
-import { HomePage } from "../Home";
-
+import async from "../../services/async/storage";
+import { apiMock } from "../../services/mock/api";
+import { styles } from "./styles";
 
 export const SingIn = () => {
   const [senhaVisivel, setSenhaVisivel] = useState(false);
   const [email, setEmail] = useState("");
-  const [id, setId] = useState("");
   const [senha, setSenha] = useState("");
-  const {navigate} = useNavigation(); 
+  const { navigate } = useNavigation();
   const { notificar } = useNotificacao();
 
-  const handleLogin = async  () =>{
-    
+  const handleLogin = async () => {
     apiMock
       .get(`/usuarios?email=${email}`)
-      .then(({data}) =>{
-        if(data.length > 0){
+      .then(({ data }) => {
+        if (data.length > 0) {
           const usuarioEncontrado = data[0];
-          if(usuarioEncontrado.email === email && usuarioEncontrado.senha === senha){
-            navigate('AppDrawer');
+          if (
+            usuarioEncontrado.email === email &&
+            usuarioEncontrado.senha === senha
+          ) {
+            navigate("AppDrawer");
             setEmail("");
             setSenha("");
-            async.saveData(usuarioEncontrado.id); 
+            async.saveData(usuarioEncontrado.id);
             notificar({ tipo: "sucesso", mensagem: "Bem vindo!" });
           }
-        } 
+        }
       })
-      .catch((erro)=>{
-        notificar({ tipo: "erro", mensagem: "usuario não encontrado." })
-      })
-      // await async.limparTudo();
-      
-      
-  }
+      .catch((erro) => {
+        notificar({ tipo: "erro", mensagem: "usuario não encontrado." });
+      });
+  };
 
- const handleCadastrar = () =>{
+  const handleCadastrar = () => {
     navigate('Register');
-
-  }
-
+  };
 
   return (
     <Background>

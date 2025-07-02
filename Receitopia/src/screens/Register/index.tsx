@@ -1,15 +1,13 @@
-import React, { useState } from "react";
-import { Ionicons } from "@expo/vector-icons";
-import { styles } from "./styles";
-import { View, TouchableOpacity, Alert } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-
+import React, { useState } from "react";
+import { Alert, View } from "react-native";
 import { Background } from "../../components/Background";
-import { Title } from "../../components/Texts/Title";
-import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { HideEye } from "../../components/HideEye";
+import { Input } from "../../components/Input";
+import { Title } from "../../components/Texts/Title";
 import { apiMock } from "../../services/mock/api";
+import { styles } from "./styles";
 
 export const Register = () => {
   const [senhaVisivel, setSenhaVisivel] = useState(false);
@@ -17,46 +15,42 @@ export const Register = () => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [confsenha, setConfsenha] = useState("");
-  const {navigate} = useNavigation(); 
+  const { navigate } = useNavigation();
 
-  const handleRegister = ()=> {
-
-    if(!nome ||!email || !senha || !confsenha ){
-      Alert.alert("Preencha os campos")
+  const handleRegister = () => {
+    if (!nome || !email || !senha || !confsenha) {
+      Alert.alert("Preencha os campos");
       return;
-    };
-
-    if(senha !== confsenha){
-      Alert.alert("Senhas não coincidem");
-      return
     }
 
-    
+    if (senha !== confsenha) {
+      Alert.alert("Senhas não coincidem");
+      return;
+    }
 
     const usuario = {
       name: nome,
       email: email,
       senha: senha,
       querofazer: [],
-      jafiz: []
-    }
-    
+      jafiz: [],
+    };
+
     apiMock
-      .post("/usuarios" ,usuario)
+      .post("/usuarios", usuario)
       .then((response) => {
-        if(response.status === 200 || response.status === 201){
-          navigate('SingIn');
-          setNome(''); 
-          setEmail('');
-          setSenha('');
-          setConfsenha('');
+        if (response.status === 200 || response.status === 201) {
+          navigate("SingIn");
+          setNome("");
+          setEmail("");
+          setSenha("");
+          setConfsenha("");
         }
       })
       .catch(() => {
-          Alert.alert("Erro ao cadastrar");
+        Alert.alert("Erro ao cadastrar");
       });
-
-  }
+  };
 
   return (
     <Background>
@@ -64,8 +58,8 @@ export const Register = () => {
         <Title title={"Cadastre-se!"} />
 
         <View style={styles.containersInputs}>
-          <Input 
-            placeholder="Qual seu nome?" 
+          <Input
+            placeholder="Qual seu nome?"
             placeholderTextColor="#d8e1ce"
             value={nome}
             onChangeText={setNome}

@@ -1,4 +1,4 @@
-import { apiMock } from './api';
+import { apiMock } from "./api";
 
 type Usuario = {
   name: string;
@@ -12,16 +12,16 @@ async function criarUsuario(novoUsuario: Usuario) {
 }
 
 async function getUsuarios() {
-    const {data} = await apiMock.get("/usuarios")
-    return data;
+  const { data } = await apiMock.get("/usuarios");
+  return data;
 }
 
-async function delUsuarios(idDel: string){ 
+async function delUsuarios(idDel: string) {
   console.log(idDel);
   try {
     const response = await apiMock.delete(`/usuarios/${idDel}`);
     console.log("Usuário deletado");
-    return response; 
+    return response;
   } catch (error) {
     console.error("Erro ao deletar", error);
 
@@ -30,5 +30,5 @@ async function delUsuarios(idDel: string){
 }
 
 export default {
-  delUsuarios
-}
+  delUsuarios,
+};

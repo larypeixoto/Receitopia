@@ -1,7 +1,6 @@
-import React from 'react';
-import { TouchableOpacity, StyleSheet } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-
+import { Ionicons } from "@expo/vector-icons";
+import React from "react";
+import { TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 
 interface searchIconProps {
@@ -10,7 +9,7 @@ interface searchIconProps {
   color?: string;
 }
 
-export const SearchIcon = ({onPress, size, color }: searchIconProps) => {
+export const SearchIcon = ({ onPress, size, color }: searchIconProps) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.searchIcon}>
       <Ionicons name="search" size={24} color={color} />

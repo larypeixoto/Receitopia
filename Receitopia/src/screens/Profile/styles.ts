@@ -6,12 +6,10 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignContent: "center",
     alignItems: "center",
-    
   },
 
-    containerButton: {
+  containerButton: {
     flexDirection: "row",
-    margin:30,
+    margin: 30,
   },
-
 });

@@ -10,6 +10,5 @@ export const styles = StyleSheet.create({
     paddingBottom: 14,
     paddingTop: 14,
     paddingHorizontal: 14,
-
   },
-})
+});

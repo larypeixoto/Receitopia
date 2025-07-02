@@ -1,6 +1,6 @@
+import { StyleScript_400Regular, useFonts } from "@expo-google-fonts/style-script";
 import { Text } from "react-native";
 import { styles } from "./styles";
-import { useFonts, StyleScript_400Regular } from "@expo-google-fonts/style-script";
 
 interface TitleProps {
   title?: string;

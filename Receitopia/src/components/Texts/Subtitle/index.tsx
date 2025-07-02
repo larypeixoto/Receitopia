@@ -5,12 +5,10 @@ interface TextProps {
   text?: string;
 }
 
-export const Subtitle = ({text}: TextProps) => {
+export const Subtitle = ({ text }: TextProps) => {
   return (
     <>
-      <Text style={styles.text}>
-        {text}
-      </Text>
+      <Text style={styles.text}>{text}</Text>
     </>
   );
 };
