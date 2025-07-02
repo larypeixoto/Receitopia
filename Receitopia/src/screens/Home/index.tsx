@@ -55,11 +55,9 @@ export const HomePage = () => {
   return (
     <>
       <Background>
-
         <View style={styles.header}>
           <Title title={"Receitopia"} />
         </View>
-
 
         {loading ? (
           <ActivityIndicator size={"large"} />
@@ -70,6 +68,7 @@ export const HomePage = () => {
                 return <RecipeCard receita={item.receita}
                 id={item.id}
                 tipo={item.tipo}
+
 
 
                 link_imagem={item.link_imagem}
@@ -84,7 +83,6 @@ export const HomePage = () => {
             isRecipeDetailsModalOpen={isRecipeDetailsModalOpen}
             setIsRecipeDetailsModalOpen={setIsRecipeDetailsModalOpen}
         />}
-
 
       </Background>
 

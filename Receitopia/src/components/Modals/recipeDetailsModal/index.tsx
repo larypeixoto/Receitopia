@@ -20,7 +20,7 @@ export const RecipeDetailsModal = ({ isRecipeDetailsModalOpen, setIsRecipeDetail
   const [recipeDetails, setRecipeDetails] = useState<recipeProps>({
     id: "",
     receita: "",
-    tipo: '',
+    tipo: "",
     link_imagem: "",
     ingredientes: "",
     modo_preparo: ""
