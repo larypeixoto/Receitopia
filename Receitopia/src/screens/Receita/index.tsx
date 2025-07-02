@@ -101,7 +101,10 @@ export const RecipeDetail = () => {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Quantidade</Text>
           <View style={styles.receitaInput}>
-            <ScrollView>
+            <ScrollView
+              contentContainerStyle={{ flexGrow: 1 }}
+              nestedScrollEnabled={true}
+            >
               <Text style={styles.text}>{quantidade}</Text>
             </ScrollView>
           </View>
@@ -109,7 +112,10 @@ export const RecipeDetail = () => {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Preparo</Text>
           <View style={styles.receitaInput}>
-            <ScrollView>
+            <ScrollView
+              contentContainerStyle={{ flexGrow: 1 }}
+              nestedScrollEnabled={true}
+            > 
               <Text style={styles.text}>{receita}</Text>
             </ScrollView>
           </View>

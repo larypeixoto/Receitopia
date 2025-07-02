@@ -84,7 +84,7 @@ export const styles = StyleSheet.create({
   ingredienteText: {
     flex: 1,
     fontSize: 14,
-    color: "#fff",
+    color: "#000",
     textTransform: "capitalize",
   },
 
@@ -97,13 +97,12 @@ export const styles = StyleSheet.create({
     backgroundColor: "#7D8F69",
     borderRadius: 15,
     padding: 15,
-    minHeight: 160,
-    maxHeight: 160,
+    height: 160,
     textAlignVertical: "top",
   },
 
   text: {
     fontSize: 14,
-    color: "#fff",
+    color: "#000",
   },
 });
