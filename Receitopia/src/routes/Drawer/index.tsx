@@ -1,9 +1,11 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { BottomTabs } from "../BottomTabs";
 import React from "react";
+import { TouchableOpacity, View } from "react-native";
+import { Title } from "../../components/Texts/Title";
 
 export type DrawerParamList = {
-  Home: { screen: "Home" };
+  HomePage: { screen: "HomePage" };
   Search: { screen: "Search" };
   Profile: { screen: "Profile" };
 };
@@ -15,35 +17,105 @@ export default function DrawerNavigator() {
     <Drawer.Navigator
       screenOptions={{
         headerStyle: {
-        backgroundColor: 'black',
-        elevation: 0,
-        shadowOpacity: 0,
-        height: 100,
-     },
-        
-        headerTintColor: '#829460',
-        drawerStyle: { backgroundColor: '#829460' },
-        drawerActiveTintColor: '#D8E1CE',
-        drawerInactiveTintColor: '#ffffff',
-        drawerPosition: 'right',
+          backgroundColor: "#D8E1CE",
+          elevation: 0,
+          shadowOpacity: 0,
+          height: 100,
+        },
+
+        headerTintColor: "#829460",
+        drawerStyle: { backgroundColor: "#829460" },
+        drawerActiveTintColor: "#D8E1CE",
+        drawerInactiveTintColor: "#ffffff",
+        drawerPosition: "right",
       }}
     >
       <Drawer.Screen
-        name="Home"
+        name="HomePage"
         component={BottomTabs}
-        options={{drawerLabel: "Home", headerTitle: () => null}} /> 
+        initialParams={{ screen: "HomePage" }}
+        options={({ navigation }) => ({
+          drawerLabel: "Home",
+          headerTitle: () => (
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                flex: 1,
+                justifyContent: "center",
+              }}
+            >
+              <Title title={"Receitopia"} />
+              <TouchableOpacity
+                onPress={() => navigation.toggleDrawer()}
+                style={{
+                  position: "absolute",
+                  justifyContent: "space-between",
+                }}
+              >
+              </TouchableOpacity>
+            </View>
+          ),
+        })}
+      />
+
       <Drawer.Screen
-        name="Search"   
+        name="Search"
         component={BottomTabs}
         initialParams={{ screen: "Search" }}
-        options={{drawerLabel: "Search", headerTitle: () => null}}  
-        />
+        options={({ navigation }) => ({
+          drawerLabel: "Search",
+          headerTitle: () => (
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                flex: 1,
+                justifyContent: "center",
+              }}
+            >
+              <Title title={"Receitopia"} />
+              <TouchableOpacity
+                onPress={() => navigation.toggleDrawer()}
+                style={{
+                  position: "absolute",
+                  justifyContent: "space-between",
+                }}
+              >
+              </TouchableOpacity>
+            </View>
+          ),
+        })}
+      />
+
       <Drawer.Screen
         name="Profile"
         component={BottomTabs}
         initialParams={{ screen: "Profile" }}
-        options={{drawerLabel: "Profile", headerTitle: () => null}}
-        />
+        options={({ navigation }) => ({
+          drawerLabel: "Profile",
+          headerTitle: () => (
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                flex: 1,
+                justifyContent: "center",
+              }}
+            >
+              <Title title={"Receitopia"} />
+              <TouchableOpacity
+                onPress={() => navigation.toggleDrawer()}
+                style={{
+                  position: "absolute",
+                  justifyContent: "space-between",
+                }}
+              >
+              </TouchableOpacity>
+            </View>
+          ),
+        })}
+      />
     </Drawer.Navigator>
   );
 }

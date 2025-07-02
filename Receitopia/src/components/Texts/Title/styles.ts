@@ -2,8 +2,10 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   titleFont: {
-    fontSize: 50,
+    fontSize: 40,
     margin: 10,
-    fontFamily: "Tangerine_700Bold",
+    fontFamily: "StyleScript_400Regular",
+    alignSelf: "center",
+    color: "#829460"
   },
 });

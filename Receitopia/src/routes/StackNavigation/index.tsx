@@ -7,6 +7,7 @@ import { RecipeDetail } from "../../screens/Receita";
 import { Profile } from "../../screens/Profile";
 
 
+
 export type ExportedRootParamList = {
   HomePage: undefined;
   Register: undefined;
@@ -21,6 +22,7 @@ export type ExportedRootParamList = {
 }
 declare global {
    namespace ReactNavigation{
+
      interface RootParamList extends ExportedRootParamList {}
     // interface RootParamList{
     //   HomePage: undefined
@@ -40,11 +42,13 @@ export const StackNavigator = () => {
     <NavigationContainer>
       
       <Stack.Navigator screenOptions={{ headerShown: false }}>
+
           <Stack.Screen name='SingIn' component={SingIn} />
           <Stack.Screen name='Register' component={Register}/>
            <Stack.Screen name='RecipeDetail' component={RecipeDetail} />
           <Stack.Screen name='AppDrawer' component={DrawerNavigator}/>
           <Stack.Screen name='Profile' component={Profile}/>
+
       </Stack.Navigator>
      
     </NavigationContainer>
